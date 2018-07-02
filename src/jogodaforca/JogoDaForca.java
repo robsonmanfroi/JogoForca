@@ -85,14 +85,16 @@ public class JogoDaForca {
                         }
                        
                                 if (letrasUtilziadas.contains(digitado.substring(0))){
-                            System.out.println("Letra "+ digitado +" ja foi utilziada");
+                            System.err.println(nomeJogador +" letra "+ digitado +" ja foi utilziada");
                             }
                              
                             else                                  
                                 if (perdeChance) {                                    
 				tentativas--;
                             }
-                                letrasUtilziadas += " " + digitado; // concatena a letra nas letras utilziadas
+                                if (!letrasUtilziadas.contains(digitado)){
+                                     letrasUtilziadas += " " + digitado; // concatena a letra nas letras utilziadas
+                                }       
 			}
 			System.out.println("\n");
 
@@ -114,7 +116,7 @@ public class JogoDaForca {
 			System.out.println("\n\t *** Parabens *** " + nomeJogador + " você acertou. " + "\n Ainda te restou "
 					+ tentativas + " tentativas");
                         } else {
-                            System.out.println("\n\t Fim do jogo " + nomeJogador + " \n você não acertou a palavra : (" + palavraJogo + ")");
+                            System.err.println("\n\t Fim do jogo " + nomeJogador + " \n você não acertou a palavra : (" + palavraJogo + ")");
                         }
         }
 
