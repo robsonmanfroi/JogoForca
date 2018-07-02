@@ -73,11 +73,9 @@ public class JogoDaForca {
 				break;
                             }
                         } else {
+   
                             letra = digitado.toUpperCase().charAt(0);               
-                            letrasUtilziadas += " " + digitado; // concatena a letra nas letras utilziadas
-                            
-                            
-                            
+          
 		boolean perdeChance = true;
 			for (int i = 0; i < palavraJogo.length(); i++) {
                             if (letra == palavraJogo.toUpperCase().charAt(i)){
@@ -85,10 +83,16 @@ public class JogoDaForca {
 				perdeChance = false;
                             }
                         }
-                        
-                            if (perdeChance) {                                    
+                       
+                                if (letrasUtilziadas.contains(digitado.substring(0))){
+                            System.out.println("Letra "+ digitado +" ja foi utilziada");
+                            }
+                             
+                            else                                  
+                                if (perdeChance) {                                    
 				tentativas--;
                             }
+                                letrasUtilziadas += " " + digitado; // concatena a letra nas letras utilziadas
 			}
 			System.out.println("\n");
 
@@ -97,8 +101,8 @@ public class JogoDaForca {
 				if (acertos[i] == 0) {
                                     System.out.print(" _ ");
                                     ganhou = false; // mostra o estado da palavra. se nao tiver a letra 
-				} else { // mostra _ e se tiver a letra vai mostrar a letra 
-					System.out.print(" " + palavraJogo.toUpperCase().charAt(i) + " ");
+				} else {            // mostra _ e se tiver a letra vai mostrar a letra 
+				System.out.print(" " + palavraJogo.toUpperCase().charAt(i) + " ");
 				}
                             }
 
