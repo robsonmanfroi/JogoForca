@@ -63,7 +63,7 @@ public class JogoDaForca {
                                 + tentativas + " tentativa" + "\n Já foram tentada as seguintes letras: "
                                 + letrasUtilziadas +"\n a qualquer momento você pode digitar a palavra se souber \n\n Qual letra você deseja tentar agora ? ");
 
-                    String digitado = scanner.next();                  
+                    String digitado = scanner.next().toUpperCase();                  
                         if (digitado.length() > 1) {
                             if (digitado.equals(palavraJogo)) {
 				ganhou = true; // se o jogador digitar a palava toda e estiver certa ele ganha 
@@ -93,7 +93,7 @@ public class JogoDaForca {
 				tentativas--;
                             }
                                 if (!letrasUtilziadas.contains(digitado)){
-                                     letrasUtilziadas += " " + digitado; // concatena a letra nas letras utilziadas
+                                     letrasUtilziadas += " " + digitado.toUpperCase(); // concatena a letra nas letras utilziadas
                                 }       
 			}
 			System.out.println("\n");
